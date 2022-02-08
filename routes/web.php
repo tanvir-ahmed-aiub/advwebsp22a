@@ -23,4 +23,8 @@ Route::get('/registration',[PagesController::class,'register'])->name('registrat
 
 Route::get('/student/create',[StudentController::class,'create']);
 Route::get('/student/edit',[StudentController::class,'edit']);
-Route::get('/student/get',[StudentController::class,'get']);
+Route::get('/student/details/{id}',[StudentController::class,'get'])->name('student.details');
+Route::get('/student/list',[StudentController::class,'list'])->name('student.list');
+
+Route::post('/registration',[PagesController::class,'registersubmit'])->name('register.submit');
+Route::post('/login',[PagesController::class,'loginsubmit'])->name('login.submit');

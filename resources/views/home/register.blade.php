@@ -1,9 +1,30 @@
-<html>
-    <form action="" method="">
-        <input type="text" placeholder="Username"><br>
-        <input type="email" placeholder="Email"><br>
-        <input type="date" placeholder="DOB"><br>
-        <input type="password" placeholder="Password"><br>
+@extends('layouts.app')
+@section('content')
+<form action="{{route('register.submit')}}" method="post">
+    {{@csrf_field()}}
+    <input type="text" name="name" value="{{old('name')}}" placeholder="Name">
+        @error('name')
+        <span>{{$message}}</span>
+        @enderror
+        <br>
+        <input type="text" name="id" value="{{old('id')}}" placeholder="Id">
+        @error('id')
+        <span>{{$message}}</span>
+        @enderror
+        <br>
+        <input type="text" name="uname" value="{{old('uname')}}" placeholder="Username">
+        @error('uname')
+        <span>{{$message}}</span>
+        @enderror
+        <br>
+        <input type="password" name="password"  placeholder="Password"><br>
+        @error('password')
+        <span>{{$message}}</span>
+        @enderror
+        <input type="password" name="conf_password"  placeholder="Confirm Password"><br>
+        @error('conf_password')
+        <span>{{$message}}</span>
+        @enderror
         <input type="submit" >
     </form>
-</html>
+@endsection
