@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DepartmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,5 @@ Route::get('/student/list',[StudentController::class,'list'])->name('student.lis
 
 Route::post('/registration',[PagesController::class,'registersubmit'])->name('register.submit');
 Route::post('/login',[PagesController::class,'loginsubmit'])->name('login.submit');
+Route::get('/department/list',[DepartmentController::class,'list'])->name('department.list');
+Route::get('/department/details/{id}',[DepartmentController::class,'details'])->name('department.details');

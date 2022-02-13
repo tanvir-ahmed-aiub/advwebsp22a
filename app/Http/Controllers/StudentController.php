@@ -33,7 +33,7 @@ class StudentController extends Controller
        
         //select * from students_info where id= $req->id
         $student = Student::where('id','=',decrypt($req->id))
-        ->select('name','id','dob')
+        ->select('name','id','dob','d_id')
         ->first();
 
         $sum = 12+13;

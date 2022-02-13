@@ -4,6 +4,7 @@
     <h3>Name: {{$student->name}}</h3>
     <h3>Id: {{$student->id}}</h3>
     <h3>Dob: {{$student->dob}}</h3>
+    <h4>Department: {{$student->department->name}}</h4>
 
     <h1>The sum is {{$sum}}</h1>
 @endsection
