@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <table>
     @foreach($students as $s)
     <tr>
@@ -8,3 +10,4 @@
     </tr>
     @endforeach
 </table>
+@endsection

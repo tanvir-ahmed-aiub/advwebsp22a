@@ -18,8 +18,8 @@ use App\Http\Controllers\DepartmentController;
 
 //Route::get('/login','PagesController@index');
 
-Route::get('/',[PagesController::class,'index']);
-Route::get('/login',[PagesController::class,'login']);
+Route::get('/',[PagesController::class,'index'])->name('home');
+Route::get('/login',[PagesController::class,'login'])->name('login');
 Route::get('/registration',[PagesController::class,'register'])->name('registration');
 
 Route::get('/student/create',[StudentController::class,'create']);
@@ -29,5 +29,6 @@ Route::get('/student/list',[StudentController::class,'list'])->name('student.lis
 
 Route::post('/registration',[PagesController::class,'registersubmit'])->name('register.submit');
 Route::post('/login',[PagesController::class,'loginsubmit'])->name('login.submit');
-Route::get('/department/list',[DepartmentController::class,'list'])->name('department.list');
-Route::get('/department/details/{id}',[DepartmentController::class,'details'])->name('department.details');
+Route::get('/department/list',[DepartmentController::class,'list'])->middleware('auth.user')->name('department.list');
+Route::get('/department/details/{id}',[DepartmentController::class,'details'])->middleware('auth.user')->name('department.details');
+Route::get('/logout',[PagesController::class,'logout'])->name('logout');

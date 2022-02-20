@@ -8,6 +8,9 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth.user');
+    }
     //
     public function create(){
         return view('student.create');
@@ -30,12 +33,12 @@ class StudentController extends Controller
         //return view('student.create');
     }
     public function get(Request $req){
-       
+      
         //select * from students_info where id= $req->id
         $student = Student::where('id','=',decrypt($req->id))
         ->select('name','id','dob','d_id')
         ->first();
-
+        
         $sum = 12+13;
         return view('student.get')
         ->with('student',$student)
